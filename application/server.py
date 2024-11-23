@@ -9,9 +9,9 @@ app = Flask(__name__)
 socketio = SocketIO(app, message_queue=os.getenv('REDIS_URL'))  # Redis message queue for production
 
 # YOLO setup
-model_weights_path = os.getenv('MODEL_WEIGHTS_PATH', 'yolov3-tiny.weights')
-model_cfg_path = os.getenv('MODEL_CFG_PATH', 'yolov3-tiny.cfg')
-coco_names_path = os.getenv('COCO_NAMES_PATH', 'coco.names')
+model_weights_path = 'yolov3-tiny.weights'
+model_cfg_path = 'yolov3-tiny.cfg'
+coco_names_path = 'coco.names'
 
 net = cv2.dnn.readNet(model_weights_path, model_cfg_path)
 net.setPreferableBackend(cv2.dnn.DNN_BACKEND_OPENCV)
